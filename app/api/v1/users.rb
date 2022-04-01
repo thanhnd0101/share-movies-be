@@ -10,15 +10,15 @@ class Users < Grape::API
     requires :password, type: String
   end
   post do
-    user = UseCases::Register.new_user(params[:username], params[:password])
-    if user.nil?
+    account = UseCases::Register.new_account(params[:username], params[:password])
+
+    if account.nil?
       status :conflict
       {
         errorMessage: "Duplicated username"
       }
     else
-      status :created
-      user.to_json
+      redirect '/api/v1/users/login', username: params[:username], password: params[:password]
     end
   end
 

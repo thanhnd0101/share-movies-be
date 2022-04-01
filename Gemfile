@@ -54,3 +54,7 @@ gem 'rack-cors'
 gem "bcrypt", "~> 3.1"
 
 gem "jwt", "~> 2.3"
+
+gem "rspec-rails", "~> 5.1"
+
+gem "rack-test", "~> 1.1"

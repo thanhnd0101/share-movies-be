@@ -7,7 +7,7 @@ class Services::AuthenticateUser < Services::Base
   end
 
   def call
-    @token = JsonWebToken.encode(user_id: account.id) if account
+    @token = JsonWebToken.encode(account_id: account.id) if account
     if @token.present?
       return {
         auth_token: @token,
