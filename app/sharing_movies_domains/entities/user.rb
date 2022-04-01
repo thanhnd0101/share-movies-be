@@ -12,4 +12,5 @@ class Entities::User
       nil
     end
   end
+
 end

@@ -52,3 +52,5 @@ gem "grape", "~> 1.6"
 gem 'rack-cors'
 
 gem "bcrypt", "~> 3.1"
+
+gem "jwt", "~> 2.3"

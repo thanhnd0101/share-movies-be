@@ -60,6 +60,7 @@
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.5.11, rbenv: 3.0.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="io-wait (v0.2.1, rbenv: 3.0.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="irb (v1.4.1, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jwt (v2.3.0, rbenv: 3.0.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="loofah (v2.15.0, rbenv: 3.0.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.7.1, rbenv: 3.0.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="marcel (v1.0.2, rbenv: 3.0.2) [gem]" level="application" />
