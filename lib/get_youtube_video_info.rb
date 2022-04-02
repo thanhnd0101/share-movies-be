@@ -13,6 +13,7 @@ class GetYoutubeVideoInfo < Services::Base
       res = Net::HTTP.get_response(@api_uri)
       data = JSON.parse(res.body)["items"][0]
       {
+        id: @youtube_params["v"][0],
         title: data["snippet"]["title"],
         description: data["snippet"]["description"],
         viewCount: data["statistics"]["viewCount"],
@@ -23,6 +24,7 @@ class GetYoutubeVideoInfo < Services::Base
     rescue => exp
       puts exp
       {
+        id: "",
         title: "",
         description: "",
         viewCount: "",

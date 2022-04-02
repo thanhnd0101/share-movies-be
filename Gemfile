@@ -66,3 +66,5 @@ gem "video_info", "~> 3.0"
 gem "cgi", "~> 0.3.2"
 
 gem "byebug", "~> 11.1"
+
+gem "kaminari", "~> 1.2"
