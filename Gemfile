@@ -58,3 +58,11 @@ gem "jwt", "~> 2.3"
 gem "rspec-rails", "~> 5.1"
 
 gem "rack-test", "~> 1.1"
+
+gem "google-api-ruby-client", "~> 9001.0"
+
+gem "video_info", "~> 3.0"
+
+gem "cgi", "~> 0.3.2"
+
+gem "byebug", "~> 11.1"

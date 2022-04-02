@@ -1,5 +1,5 @@
 class UploadMedia < ApplicationRecord
-  enum media_type: [:video, :image]
+  enum media_type: [:youtube_video]
 
   belongs_to :document
 
