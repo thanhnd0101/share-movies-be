@@ -23,15 +23,12 @@ class Services::AuthorizeApiRequest < Services::Base
   attr_reader :headers
 
   def account
-    @account ||= Account.find(@decoded_auth_token["account_id"]) if decoded_auth_token
+    @account ||= Account.find(decoded_auth_token["account_id"]) if decoded_auth_token
     @account || Rails.logger.error("Invalid token - #{__FILE__ }#{__LINE__ }") && nil
   end
 
   def decoded_auth_token
     @decoded_auth_token ||= JsonWebToken.decode(auth_token)
-    @decoded_auth_token if @decoded_auth_token.present?
   end
-
- 
 
 end

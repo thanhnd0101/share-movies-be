@@ -25,10 +25,10 @@ class GetYoutubeVideoInfo < Services::Base
       {
         title: "",
         description: "",
-        viewCount: 0,
-        likeCount: 0,
-        favoriteCount: 0,
-        commentCount: 0,
+        viewCount: "",
+        likeCount: "",
+        favoriteCount: "",
+        commentCount: "",
       }
     end
   end
