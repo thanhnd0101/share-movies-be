@@ -12,18 +12,21 @@ class GetYoutubeVideoInfo < Services::Base
     begin
       res = Net::HTTP.get_response(@api_uri)
       data = JSON.parse(res.body)["items"][0]
-      {
-        id: @youtube_params["v"][0],
-        title: data["snippet"]["title"],
-        description: data["snippet"]["description"],
-        viewCount: data["statistics"]["viewCount"],
-        likeCount: data["statistics"]["likeCount"],
-        favoriteCount: data["statistics"]["favoriteCount"],
-        commentCount: data["statistics"]["commentCount"],
-      }
+
+      JSON.generate(
+        {
+          id: @youtube_params["v"][0],
+          title: data["snippet"]["title"],
+          description: data["snippet"]["description"],
+          viewCount: data["statistics"]["viewCount"],
+          likeCount: data["statistics"]["likeCount"],
+          favoriteCount: data["statistics"]["favoriteCount"],
+          commentCount: data["statistics"]["commentCount"],
+        }
+      )
     rescue => exp
       puts exp
-      {
+      JSON.generate({
         id: "",
         title: "",
         description: "",
@@ -31,14 +34,14 @@ class GetYoutubeVideoInfo < Services::Base
         likeCount: "",
         favoriteCount: "",
         commentCount: "",
-      }
+      })
     end
   end
 
   private
 
   def set_up
-    @api_uri = URI("https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&id=#{@youtube_params["v"][0]}&key=AIzaSyDznEPmUcIBf8co8dHgd3AI3c-S0xrRJNs")
+    @api_uri = URI("https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&id=#{@youtube_params["v"][0]}&key=#{ENV["YOUTUBE_API_KEY"]}")
   end
 
 end

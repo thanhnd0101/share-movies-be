@@ -14,7 +14,7 @@ RSpec.describe Users, type: :request do
       allow(UseCases::Register).to receive(:new_account).and_return(double(:account, :id => 1, :username => "abc", :password => "bca"))
 
       post "/api/v1/users", :params => {:username => "abc", :password => "123"}
-      expect(response).to redirect_to("/api/v1/users/login")
+      expect(response).to have_http_status(:created)
     end
 
     it "fail to create a new account" do

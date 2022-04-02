@@ -8,6 +8,10 @@ class Entities::Document
     nil
   end
 
+  def self.total_documents_count
+    return Document.count
+  end
+
   def self.create_a_document(user)
     begin
       Document.create!({account: user.account})

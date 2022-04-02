@@ -6,14 +6,13 @@ class Videos < Grape::API
     optional :items_per_page, type: Integer
   end
   get do
-    service = Services::AuthorizeApiRequest.new(request.headers)
-    account = service.call
-    if account.present?
-      status :ok
-      Services::GetPaginatedVideosIfNeeded.call({page_index: params[:page_index], items_per_page: params[:items_per_page]})
-    else
-      status :unauthorized
-    end
+    result = Services::GetPaginatedVideosIfNeeded.call({ page_index: params[:page_index], items_per_page: params[:items_per_page] })
+    total_pages = (Entities::Document.total_documents_count / params[:items_per_page].to_f).ceil
+    {
+      total_pages: total_pages,
+      items_per_page: params[:items_per_page],
+      documents: result
+    }.to_json
   end
 
   namespace "share-youtube-video" do
