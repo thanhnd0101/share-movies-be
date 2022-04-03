@@ -8,7 +8,7 @@ RSpec.describe Entities::Media do
       allow_any_instance_of(UploadMedia).to receive(:document=).and_return({})
       allow_any_instance_of(UploadMedia).to receive(:save!).and_raise(Exception)
 
-      expect {Entities::Media.create_youtube_video({}, {})}.to raise_error(Exception)
+      expect {Entities::Media.create_youtube_video({}, {}, 'abc')}.to raise_error(Exception)
     end
 
     it 'create media successfull' do
@@ -16,7 +16,7 @@ RSpec.describe Entities::Media do
       allow_any_instance_of(UploadMedia).to receive(:document=).and_return({})
       allow_any_instance_of(UploadMedia).to receive(:save!).and_return(expected_value)
 
-      expect(Entities::Media.create_youtube_video({}, {})).to include_json(expected_value)
+      expect(Entities::Media.create_youtube_video({}, {}, 'abc')).to include_json(expected_value)
     end
   end
 end

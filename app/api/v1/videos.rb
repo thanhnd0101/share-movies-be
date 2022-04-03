@@ -7,7 +7,10 @@ class Videos < Grape::API
   end
   get do
     result = Services::GetPaginatedVideosIfNeeded.call({ page_index: params[:page_index], items_per_page: params[:items_per_page] })
-    total_pages = (Entities::Document.total_documents_count / params[:items_per_page].to_f).ceil
+    total_pages = 1
+    if params[:items_per_page].present?
+      total_pages = (Entities::Document.total_documents_count / params[:items_per_page].to_f).ceil
+    end
     {
       total_pages: total_pages,
       items_per_page: params[:items_per_page],
