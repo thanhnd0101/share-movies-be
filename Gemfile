@@ -68,3 +68,5 @@ gem "cgi", "~> 0.3.2"
 gem "byebug", "~> 11.1"
 
 gem "kaminari", "~> 1.2"
+
+gem "sidekiq", "~> 6.4"
