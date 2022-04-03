@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sharing movies mini project
 
-Things you may want to cover:
+# Architecture
 
-* Ruby version
+![img.png](public/img.png)
 
-* System dependencies
+# Domain-driven design
 
-* Configuration
+![img.png](public/img1.png)
 
-* Database creation
+# Database
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![](public/SharingMoviesDB.png)
