@@ -9,7 +9,8 @@ class UpdateYoutubeVideosMetadataJob
       documents = Document.id_list(document_ids).includes(:upload_media)
       documents.each do |document|
         youtube_video = document.upload_media.first
-        if (Time.now - youtube_video.updated_at) / 86400 > UPDATE_PERIOD_THRESHOLD_IN_HOURS
+        puts UPDATE_PERIOD_THRESHOLD_IN_HOURS
+        if (Time.now - youtube_video.updated_at) / 3600 >= UPDATE_PERIOD_THRESHOLD_IN_HOURS
           puts "Update #{youtube_video.id} metadata"
           video_metadata = GetYoutubeVideoInfo.call(youtube_video.url)
 
