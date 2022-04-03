@@ -1,9 +1,9 @@
 class Entities::Document
 
-  def self.create_youtube_video(user, video_meta_data, url)
+  def self.create_youtube_video(user, video_metadata, url)
     document = create_a_document(user)
     if !document.nil?
-      return Entities::Media.create_youtube_video(document, video_meta_data, url)
+      return Entities::Media.create_youtube_video(document, video_metadata, url)
     end
     nil
   end

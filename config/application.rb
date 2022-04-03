@@ -26,6 +26,7 @@ module ShareMoviesBe
     # Grape API
     # config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
     config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
+    config.autoload_paths += Dir[Rails.root.join('app', 'sidekiq', '*')]
     config.autoload_paths << Rails.root.join('lib')
     config.middleware.insert_before 0, Rack::Cors do
       allow do
